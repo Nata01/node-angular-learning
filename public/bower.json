@@ -1,0 +1,15 @@
+{
+  "name": "node-angular-learning",
+  "authors": [
+    "Nata01 <xx932500@gmail.com>", "Sasha00"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "dependencies": {
+    "angular": "angularjs#^1.5.7",
+    "bootstrap": "^3.3.6",
+    "angular-route": "^1.5.7"
+  }
+}
