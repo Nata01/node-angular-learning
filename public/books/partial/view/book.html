@@ -1,0 +1,18 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <td>{{book.name}}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{book.description}}</td>
+    </tr>
+    <tr>
+        <th>Authors</th>
+        <td>
+            <ol>
+                <li ng-repeat="author in book.authors">{{author.name}}</li>
+            </ol>
+        </td>
+    </tr>
+</table>
