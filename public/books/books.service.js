@@ -1,20 +1,26 @@
 angular.module("books")
     .factory("booksService", function ($http) {
         return {
-            getBooks: getAll,
-            getBookById: getById
+            getBooks: getBooks,
+            getBookById: getBookById,
+            createBook: createBook
         };
         
-        function getAll() {
+        function getBooks() {
             return $http.get('/api/books')
                 .then(_getResponseData);
         }
         
-        function getById(id){
+        function getBookById(id){
             return $http.get('/api/books/'+id)
                 .then(_getResponseData);
         }
-        
+
+        function createBook(book) {
+            return $http.post('/api/books', book)
+                .then(_getResponseData);
+        }
+
 
         function _getResponseData(res) {
             return res.data;

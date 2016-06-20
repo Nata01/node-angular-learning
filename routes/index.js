@@ -1,31 +1,26 @@
 var express = require('express');
 var router = express.Router();
-
-
-router.get('/', function (req, res) {
-    res.json('hello, world!');
-});
+var Book = require("../models/book");
 
 router.get('/books', function (req, res) {
-    res.json([{id: 1, name: "Book 1"}, {id: 2, name:"Book 2"}]);
+    Book.find(function (err, books) {
+        res.json(books);
+    });
 });
 
 router.get('/books/:bookId', function (req, res) {
     var id = req.params.bookId;
-    var book = {
-        name: "Book " + id,
-        description: "Some book desc",
-        authors: [
-            {id: 1, name: "Author 1"},
-            {id: 2, name: "Author 2"}
-        ]
-    };
-
-    res.json(book);
+    Book.find({_id: id}, function (err, books) {
+        res.json(books[0]);
+    });
 });
 
-router.get('/author/:id', function (req, res) {
-    res.json({id: req.params.id, name: 'Natashka'});
+router.post('/books', function (req, res) {
+    var book = new Book(req.body);
+    book.save(function (err, book) {
+        res.json(book);
+    });
+
 });
 
 module.exports = router;

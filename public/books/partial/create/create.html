@@ -1,0 +1,11 @@
+<input type="text" placeholder="Book title" ng-model="book.name"><br>
+<input type="text" placeholder="Book description" ng-model="book.description"><br>
+
+<ul>
+    <li ng-repeat="author in book.authors">{{author.name}}</li>
+</ul>
+
+<input type="text" placeholder="author name" ng-model="authorName">
+<button ng-click="addAuthor()">Add author</button><br>
+
+<button ng-click="createBook(book)">Send</button>
